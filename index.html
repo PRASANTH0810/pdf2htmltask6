@@ -1,0 +1,1297 @@
+<html>
+<head>
+  <title>pdf2htmltask6</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
+  
+</head>
+<body>
+   <div class="section">
+       <div class="content-container">
+    <h2><b>Chapter VII<br /></b></h2>
+    <br />
+    <h1><b>The Impact of Missing<br/>
+        Data on Data Mining<br /></b></h1>
+        
+    <p style="text-align: center;">Marvin L. Brown<br/>
+        Hawaii Pacific University, USA<br /></p><br/>
+        <p style="text-align: center;">John F. Kros<br/>
+            East Carolina University, USA<br /></p><br/>
+    
+
+    <h3><b>ABSTRACT<br /></b></h3>
+    <div class="p1"><i>Data mining is based upon searching the concatenation of multiple databases that
+        usually contain some amount of missing data along with a variable percentage of
+        inaccurate data, pollution, outliers, and noise. The actual data-mining process deals
+        significantly with prediction, estimation, classification, pattern recognition, and the
+        development of association rules. Therefore, the significance of the analysis depends
+        heavily on the accuracy of the database and on the chosen sample data to be used for
+        model training and testing. The issue of missing data must be addressed since ignoring
+        this problem can introduce bias into the models being evaluated and lead to inaccurate
+        data mining conclusions.</i></div><br/>
+        <b><h3>THE IMPACT OF MISSING DATA</h3></b>
+        <p>Missing or inconsistent data has been a pervasive problem in data analysis since
+            the origin of data collection. More historical data is being collected today due to the
+            proliferation of computer software and the high capacity of storage media. In turn, the
+            issue of missing data becomes an even more pervasive dilemma. An added complication
+            is that the more data that is collected, the higher the likelihood of missing data. This will
+            require one to address the problem of missing data in order to be effective.</p>
+
+    
+    <p style="text-align: right; margin-top: 1cm;">pg.no: 01</p><br/>
+    </div>
+  </div>
+  <!---------------next page---------------------------------------------------------------------------------->
+  <div class="section">
+    <div class="content-container">
+        <p>During the last four decades, statisticians have attempted to address the impact of
+            missing data on information technology.</p>
+            <p>This chapter’s objectives are to address the impact of missing data and its impact
+                on data mining. The chapter commences with a background analysis, including a review
+                of both seminal and current literature. Reasons for data inconsistency along with
+                definitions of various types of missing data are addressed. The main thrust of the chapter
+                focuses on methods of addressing missing data and the impact that missing data has on
+                the knowledge discovery process. Finally, trends regarding missing data and data mining
+                are discussed in addition to future research opportunities and concluding remarks.
+                </p><br/>
+        <b><h4>Background</h4></b>
+        <p>The analysis of missing data is a comparatively recent discipline. With the advent
+            of the mainframe computer in the 1960s, businesses were capable of collecting large
+            amounts of data on their customer databases. As large amounts of data were collected,
+            the issue of missing data began to appear. A number of works provide perspective on
+            missing data and data mining.</p>
+            
+            <p>Afifi and Elashoff (1966) provide a review of the literature regarding missing data
+            and data mining. Their paper contains many seminal concepts, however, the work may
+            be dated for today’s use. Hartley and Hocking (1971), in their paper entitled “The
+            Analysis of Incomplete Data,” presented one of the first discussions on dealing with
+            skewed and categorical data, especially maximum likelihood (ML) algorithms such as
+            those used in Amos. Orchard and Woodbury (1972) provide early reasoning for
+            approaching missing data in data mining by using what is commonly referred to as an
+            expectation maximization (EM) algorithm to produce unbiased estimates when the data
+            are missing at random (MAR). Dempster, Laird, and Rubin’s (1977) paper provided
+            another method for obtaining ML estimates and using EM algorithms. The main
+            difference between Dempster, Laird, and Rubin’s (1977) EM approach and that of Hartley
+            and Hocking is the Full Information Maximum Likelihood (FIML) algorithm used by
+            Amos. In general, the FIML algorithm employs both first- and second-order derivatives
+            whereas the EM algorithm uses only first-order derivatives.</p>
+            
+            <p>Little (1982) discussed models for nonresponse, while Little and Rubin (1987)
+            considered statistical analysis with missing data. Specifically, Little and Rubin (1987)
+            defined three unique types of missing data mechanisms and provided parametric
+            methods for handling these types of missing data. These papers sparked numerous
+            works in the area of missing data. Diggle and Kenward (1994) addressed issues regarding
+            data missing completely at random, data missing at random, and likelihood-based
+            inference. Graham, Hofer, Donaldson, MacKinnon, and Schafer (1997) discussed using
+            the EM algorithm to estimate means and covariance matrices from incomplete data.
+            Papers from Little (1995) and Little and Rubin (1989) extended the concept of ML
+            estimation in data mining, but they also tended to concentrate on data that have a few
+            distinct patterns of missing data. Howell (1998) provided a good overview and examples
+            of basic statistical calculations to handle missing data.</p>
+            
+            <p>The problem of missing data is a complex one. Little and Rubin (1987) and Schafer
+            (1997) provided conventional statistical methods for analyzing missing data and discussed the negative implications of naïve imputation methods. However, the statistical</p>
+            
+
+
+
+            <p style="text-align: right; margin-top: 1cm;">pg.no: 02</p><br/>
+    </div>
+  </div>
+  <!--------------------next page---------------------------------------------------------->
+  <div class="section">
+    <div class="content-container">
+
+        <div class="p1">literature on missing data deals almost exclusively with the training of models rather than
+            prediction (Little, 1992). Training is described as follows: when dealing with a small
+            proportion of cases containing missing data, you can simply eliminate the missing cases
+            for purposes of training. Cases cannot be eliminated if any portion of the case is needed
+            in any segment of the overall discovery process.</div>
+            <p>In theory, Bayesian methods can be used to ameliorate this issue. However, Bayesian methods 
+                have strong assumptions associated with them. Imputation methods are valuable alternatives
+                 to introduce here, as they can be interpreted as an approximate Bayesian inference for
+                  quantities of interest based on observed data.</p>
+
+<p>A number of articles have been published since the early 1990s regarding imputation methodology. Schafer
+     and Olsen (1998) and Schafer (1999) provided an excellent starting point for multiple imputation. Rubin 
+     (1996) provided a detailed discussion on the interrelationship between the model used for imputation and
+      the model used for analysis. Schafer’s (1997) text has been considered a follow-up to Rubin’s 1987 text.
+       A number of conceptual issues associated with imputation methods are clarified in Little (1992).
+        In addition, a number of case studies have been published regarding the use of imputation in medicine 
+        (Barnard & Meng, 1999; van Buuren, Boshuizen, & Knook, 1999) and in survey research (Clogg, Rubin, 
+        Schenker, Schultz, & Weidman, 1991). A number of researchers have begun to discuss specific imputation
+         methods. Hot deck imputation and nearest neighbor methods are very popular in practice, despite receiving
+          little overall coverage with regard to Data Mining (see Ernst, 1980; Kalton & Kish, 1981; Ford, 1983; and
+           David, Little, Samuhel, & Triest, 1986).</p>
+
+<p>Breiman, Friedman, Olshen, and Stone (1984) developed a method known as CART®, or classification and 
+    regression trees. Classification trees are used to predict membership of cases or objects in the classes 
+    of categorical dependent variables from their measurements on one or more predictor variables. Loh and Shih 
+    (1997) expanded on classification trees with their paper regarding split selection methods. Some popular 
+    classification tree programs include FACT (Loh & Vanichestakul, 1988), THAID (Morgan & Messenger, 1973),
+     as well as the related programs AID, for Automatic Interaction Detection (Morgan & Sonquist, 1963), and 
+     CHAID, for Chi-Square Automatic Interaction Detection (Kass, 1980). Classification trees are useful 
+     data-mining techniques as they are easily understood by business practitioners and are easy to perceive 
+     visually. Also, the basic tree induction algorithm is considered to be a “greedy” approach to classification,
+     using a recursive divide-and-conquer approach (Han & Kamber, 2001). This allows for raw data to be analyzed
+      quickly without a great deal of preprocessing. No data is lost, and outliers can be identified and dealt
+       with immediately (Berson, Smith and Thearling, 2000).</p>
+
+<p>Agrawal, Imielinski, and Swami (1993) introduced association rules for the first time in their paper, “Mining Association Rules between Sets of Items in Large.” A second paper by Agrawal and Srikant (1994) introduced the Apriori algorithm. This is the reference algorithm for the problem of finding Association Rules in a database. Valuable “general purpose” chapters regarding the discovery of Association Rules are included in the texts:<i>Fast Discovery of Association Rules</i> by R. Agrawal, H. Mannila, R. Srikant, H. Toivonen and A. I. Verkamo, and <i> Advances in Knowledge Discovery and Data Mining</i>. Association rules in data-mining applications search for interesting relationships among a given set of attributes. Rule generation is based on the “interestingness” of a proposed rule, measured by satisfaction of thresholds for minimum support and</p>
+
+
+<p style="text-align: right; margin-top: 1cm;">pg.no: 03</p><br/>
+</div>
+</div>
+<!----------------------next page------------------------------------------------------------------>
+<div class="section">
+    <div class="content-container">
+   <div class="p1">minimum confidence. Another method for determining interestingness is the use of
+    correlation analysis to determine correlation rules between itemsets (Han & Kamber,
+    2001).</div>
+
+    <p>In addition to the aforementioned data-mining techniques, neural networks are used to build explanatory 
+        models by exploring datasets in search of relevant variables or groups of variables. Haykin (1994),
+         Masters (1995), and Ripley (1996) provided information on neural networks. For a good discussion of
+          neural networks used as statistical tools, see Warner and Misra (1996). More recent neural net literature
+           also contains good papers covering prediction with missing data (Ghahramani & Jordan, 1997; Tresp,
+            Neuneier, & Ahmad, 1995). Neural networks are useful in data-mining software packages in their ability
+             to be readily applied to prediction, classification, and clustering problems, and can be trained to
+              generalize and learn (Berson, Smith, & Thearling, 2000). When prediction is the main goal of the
+               neural network, it is most applicable for use when both the inputs to, and outputs from, the 
+               network are well-understood by the knowledge worker. The answers obtained from neural networks 
+               are often correct and contain a considerable amount of business value (Barry & Linoff, 1997).</p>
+
+    <p>Finally, genetic algorithms are also learning-based data mining techniques. Holland (1975) introduced
+         genetic algorithms as a learning-based method for search and optimization problems. Michalewicz (1994)
+          provided a good overview of genetic algorithms, data structures, and evolution programs. A number of
+           interesting articles discussing genetic algorithms have appeared. These include Flockhart and 
+           Radcliffe (1996), Szpiro (1997), and Sharpe and Glover (1999). While neural networks employ the 
+           calculation of internal link weights to determine the best output, genetic algorithms are also used 
+           in data mining to find the best possible link weights. Simulating natural evolution, genetic algorithms 
+           generate many different genetic estimates of link weights, creating a population of various neural 
+           networks. Survival-of-the-fittest techniques are then used to weed out networks that are performing 
+           poorly (Berson, Smith & Thearling, 2000).</p>
+    
+    <p>In summation, the literature to date has addressed various approaches to data mining through the
+         application of historically proven methods. The base theories of nearest neighbor, classification
+          trees, association rules, neural networks, and genetic algorithms have been researched and proven
+           to be viable methodologies to be used as the foundation of commercial data mining software packages.
+            The impact of incomplete or missing data on the knowledge discovery (data mining) process has more
+             recently been approached in association with these individual methodologies. Prior research in this
+              area has resulted in updates to commercial software in order to address issues concerning the 
+              quality and preprocessing of both training and new data sets, as well as the nature and origin of
+               various problematic data issues.</p>
+    
+    <p>In the future, many hybrid methods utilizing the proven algorithms currently used for successful data 
+        mining will be developed to compete both in the realms of research and private industry. In addition to 
+        these algorithmic hybrids, new methodologies for dealing with incomplete and missing data will also be
+         developed, also through the merging of proven and newly developed approaches to these issues. Other 
+         research gaps to pursue will include the warehousing of all “dirty data,” warehousing of pattern 
+         recognition results, and the development of new techniques to search these patterns for the very nature
+          of the problem and its solution. In areas that are found to have unavailable practical solutions, methods
+           for handling individual “special interest” situations must be investigated.</p>
+    
+        
+           <p style="text-align: right; margin-top: 1cm;">pg.no: 04</p><br/>
+    </div>
+  </div>
+  <!---------------------------next page-------------------------------------------------------------->
+  <div class="section">
+    <div class="content-container">
+<b><h3>DATA MINING WITH<br/>
+    INCONSISTENT DATA/MISSING DATA</h3></b>
+
+    <p>The main thrust of the chapter focuses on methods of addressing missing data and
+        the impact that missing data has on the knowledge discovery process (depending on the
+        data-mining algorithm being utilized). Finally, trends regarding missing data and data
+        mining are discussed along with future research opportunities and concluding remarks.</p>
+        <br/>
+        <b><h4>Reasons For Data Inconsistency</h4></b>
+        <p>Data inconsistency may arise for a number of reasons, including:</p>
+
+        <ul>
+            <li><div class="p1">Procedural Factors;</div></li>
+            <li><div class="p1">Refusal of Response; or</div></li>
+            <li><div class="p1">Inapplicable Responses.</div></li>
+        </ul><br/>
+
+        <i><div class="p1" style="font-size: 14;">Procedural Factors</div></i>
+        <p>Errors in databases are a fact of life; however, their impact on knowledge discovery and data mining can generate serious problems. Data entry errors are common. Dillman (1999) provided an excellent text for designing and collecting data. He also promoted discussion for the reduction of survey error including coverage, sampling, measurement, and nonresponse.</p>
+
+<p>Whenever invalid codes are allowed to slip into a database, inaccurate classifications of new data occur resulting in classification error or omission. Erroneous estimates, predictions, and invalid pattern-recognition conclusions may also take place. Correlation between attributes can also become skewed which will result in erroneous association rules.</p>
+
+<p>Data from questionnaires that are left blank by the respondent further complicate the data-mining process. If a large number of similar respondents fail to complete similar questions, the deletion or misclassification of these observations can take the researcher down the wrong path of investigation or lead to inaccurate decision making by end-users. Methods for prevention of procedural data inconsistency are presented in Jenkins and Dillman (1997). Included are topics such as how to design a questionnaire with regard to typography and layout in order to avoid data inconsistency. Another excellent paper is Brick and Kalton (1996) which discusses the handling of missing data in survey research.</p>
+<br/>
+<i><div class="p1" style="font-size: 14;">Refusal of Response</div></i>
+<p>Some respondents may find certain survey questions offensive, or they may be personally sensitive to certain questions. For example, questions that refer to one’s education level, income, age, or weight may be deemed too personal by some respondents. In addition, some respondents may have no opinion regarding certain questions, such as political or religious affiliation.</p>
+
+<p>Furthermore, respondents may simply have insufficient knowledge to accurately answer particular questions (Hair, 1998). Students, in particular, may have insufficient knowledge to answer certain questions. For example, when polled for data concerning</p>
+    <br/>
+
+<p style="text-align: right; margin-top: 1cm;">pg.no: 05</p><br/>
+    </div>
+  </div>
+  <!-------------------------------next page -------------------------------------->
+  <div class="section">
+    <div class="content-container">
+        <div class="p1">future goals and/or career choices, they may not have had the time to investigate certain
+            aspects of their career choice (such as salaries in various regions of the country,
+            retirement options, insurance choices, etc.).</div><br/>
+
+            <i><div class="p1" style="font-size: 14;">Inapplicable Responses</div></i>
+            <p>Sometimes questions are left blank simply because the questions apply to a more
+                general population than to an individual respondent. In addition, if a subset of questions
+                on a questionnaire does not apply to the individual respondent, data may be missing for
+                a particular expected group within a data set. For example, adults who have never been
+                married or who are widowed or divorced are not likely to answer a question regarding
+                years of marriage. Likewise, graduate students may choose to leave questions blank that
+                concern social activities for which they simply do not have time.</p><br/>
+
+                <b><h4>Types of Missing Data</h4></b>
+                <p>It is important for an analyst to understand the different types of missing data before
+                    he or she can address the issue. The following is a list of the standard types of missing
+                    data:</p>
+                    <ul>
+                        <li><p>Data Missing At Random;</p></li>
+                        <li><p>Data Missing Completely At Random;</p></li>
+                        <li><p>Non-Ignorable Missing Data; and</p></li>
+                        <li><p>Outliers Treated As Missing Data</p></li>
+                    </ul><br/>
+
+            <i><div class="p1" style="font-size: 14;">[Data] Missing At Random (MAR)</div></i>
+            <p>Cases containing incomplete data must be treated differently than cases with complete data. The pattern of the missing data may be traceable or predictable from other variables in the database, rather than being attributable to the specific variable on which the data are missing (Stat. Serv. Texas, 2000). Rubin (1976) defined missing data as Missing At Random (MAR) “when given the variables X and Y, the probability of response depends on X but not on Y.” For example, if the likelihood that a respondent will provide his or her weight depends on the probability that the respondent will not provide his or her age, then the missing data is considered to be MAR (Kim, 2001).</p>
+<p>Consider the situation of reading comprehension. Investigators may administer a reading comprehension test at the beginning of a survey administration session in order to find participants with lower reading comprehension scores. These individuals may be less likely to complete questions that are located at the end of the survey.</p>
+<br/>
+<i><div class="p1" style="font-size: 14;">[Data] Missing Completely At Random (MCAR)</div></i>
+<p>Missing Completely At Random (MCAR) data exhibits a higher level of randomness than does MAR. Rubin (1976) and Kim (2001) classified data as MCAR when “the probability of response [shows that] independence exists between X and Y.” In other words, the observed values of Y are truly a random sample for all values of Y, and no other factors included in the study may bias the observed values of Y.</p>
+<p>Consider the case of a laboratory providing the results of a decomposition test of a chemical compound in which a significant level of iron is being sought. If certain levels</p>
+<br/>
+        <p style="text-align: right; margin-top: 1cm;">pg.no: 06</p><br/>
+    </div>
+  </div>
+  <!-------------------------next page----------------------------------------------------------------->
+
+  <div class="section">
+    <div class="content-container">
+        <br/>
+<div class="p1">of iron are met or missing entirely and no other elements in the compound are identified
+    to correlate with iron at that level, then it can be determined that the identified or missing
+    data for iron is MCAR.</div><br/>
+
+    <i><div class="p1" style="font-size: 14;">Non-Ignorable Missing Data</div></i>
+    <p>Given two variables, X and Y, data is deemed Non-Ignorable when the probability of response depends on variable X and possibly on variable Y. For example, if the likelihood of an individual providing his or her weight varied within various age categories, the missing data is non-ignorable (Kim, 2001). Thus, the pattern of missing data is non-random and possibly predictable from other variables in the database.</p>
+<p>In contrast to the MAR situation where data missingness is explained by other measured variables in a study, non-ignorable missing data arise due to the data missingness pattern being explainable —and only explainable —by the very variable(s) on which the data are missing (Stat. Serv. Texas, 2000).</p>
+<p>In practice, the MCAR assumption is seldom met. Most missing data methods are applied on the assumption of MAR, although that is not always tenable. And in correspondence to Kim (2001), “Non-Ignorable missing data is the hardest condition to deal with, but, unfortunately, the most likely to occur as well.”</p>
+<br/>
+
+<i><div class="p1" style="font-size: 14;">Outliers Treated As Missing Data</div></i>
+<p>Data whose values fall outside of predefined ranges may skew test results. Many times, it is necessary to classify these outliers as missing data. Pre-testing and calculating threshold boundaries are necessary in the pre-processing of data in order to identify those values that are to be classified as missing. Reconsider the case of a laboratory providing the results of a decomposition test of a chemical compound. If it has been predetermined that the maximum amount of iron that can be contained in a particular compound is 500 parts/million, then the value for the variable “iron” should never exceed that amount. If, for some reason, the value does exceed 500 parts/million, then some visualization technique should be implemented to identify that value. Those offending cases are then presented to the end-users.</p>
+<p>For even greater precision, various levels of a specific attribute can be calculated according to its volume, magnitude, percentage, and overall impact on other attributes and subsequently used to help determine their impact on overall data-mining performance.</p>
+<p>Suppose that the amount of silicon in our previous chemical compound example had an impact on the level of iron in that same compound. A percentile threshold for the level of silicon that is permissible in a compound before it has a significant impact on the content of iron can be calculated in order to identify the threshold at which silicon significantly alters both the iron content and, therefore, the overall compound. This “trigger” should be defined somewhere in the data-mining procedure in order to identify which test samples of a compound may be polluted with an overabundance of silicon, thus skewing the iron sample taken from the compound.</p>
+
+
+
+        <p style="text-align: right; margin-top: 1cm;">pg.no: 07</p><br/>
+    </div>
+  </div>
+
+  <!------------------next page--------------------------------------------------->
+
+  <div class="section">
+    <div class="content-container">
+        <br/>
+        <b><h3>METHODS OF ADDRESSING MISSING DATA</h3></b>
+        <p>Methods for dealing with missing data can be broken down into the following
+            categories:</p>
+            <ul>
+                <li><p>Use Of Complete Data Only;</p></li>
+                <li><p>Deleting Selected Cases Or Variables;</p></li>
+                <li><p>Data Imputation; and</p></li>
+                <li><p>Model-Based Approaches.</p></li>
+            </ul><br/>
+            <p>These categories are based on the randomness of the missing data and how the
+                missing data is estimated and used for replacement. The next section describes each of
+                these categories.
+                </p><br/>
+
+                <b><h4>Use of Complete Data Only</h3></b>
+                    <p>One of the most direct and simple methods of addressing missing data is to include
+                        only those values with complete data. This method is generally referred to as the
+                        “complete case approach” and is readily available in all statistical analysis packages.
+                        This method can only be used successfully if the missing data are classified as MCAR.
+                        If missing data are not classified as MCAR, bias will be introduced and make the results
+                        non-generalizable to the overall population. This method is best suited to situations
+                        where the amount of missing data is small. When the relationships within a data set are
+                        strong enough to not be significantly affected by missing data, large sample sizes may
+                        allow for the deletion of a predetermined percentage of cases.</p><br/>
+
+                        <b><h4>Delete Selected Cases or Variables</h4></b>
+                        <p>The simple deletion of data that contains missing values may be utilized when a nonrandom pattern of missing data is present. Even though Nie, Hull, Jenkins, Steinbrenner,
+                            and Bent (1975) examined this strategy, no firm guidelines exist for the deletion of
+                            offending cases. Overall, if the deletion of a particular subset (cluster) significantly
+                            detracts from the usefulness of the data, case deletion may not be effective. Further, it
+                            may simply not be cost effective to delete cases from a sample. Assume that new
+                            automobiles costing $20,000 each have been selected and used to test new oil additives.
+                            During a 100,000-mile test procedure, the drivers of the automobiles found it necessary
+                            to add an oil-additive to the engine while driving. If the chemicals in the oil-additive
+                            significantly polluted the oil samples taken throughout the 100,000-mile test, it would be
+                            ill-advised to eliminate ALL of the samples taken from a $20,000 test automobile. The
+                            researchers may determine other methods to gain new knowledge from the test without
+                            dropping all sample cases from the test.</p>
+                            <p>Also, if the deletion of an attribute (containing missing data) that is to be used as
+                                an independent variable in a statistical regression procedure has a significant impact on
+                                the dependent variable, various imputation methods may be applied to replace the
+                                missing data (rather than altering the significance of the independent variable on the
+                                dependent variable).</p><br/>
+
+            
+        <p style="text-align: right; margin-top: 1cm;">pg.no: 08</p><br/>
+    </div>
+  </div>
+  <!---------------next page---------------------------------------------------------------->
+  <div class="section">
+    <div class="content-container">
+        <br/>
+        <b><h4>Imputation Methods for Missing Data</h4></b>
+        <p>The definition of imputation is “the process of estimating missing data of an
+            observation based on valid values of other variables” (Hair, Anderson, Tatham, & Black,
+            1998). Imputation methods are literally methods of filling in missing values by attributing
+            them to other available data. As Dempster and Rubin (1983) commented, “Imputation is
+            a general and flexible method for handling missing-data problems, but is not without its
+            pitfalls. Imputation methods can be dangerous as they can generate substantial biases
+            between real and imputed data.” Nonetheless, imputation methods tend to be a popular
+            method for addressing missing data.</p>
+            <p>Commonly used imputation methods include:</p>
+            <ul>
+                <li><p>Case Substitution</p></li>
+                <li><p>Mean Substitution</p></li>
+                <li><p>Hot Deck Substitution</p></li>
+                <li><p>Cold Deck Substitution</p></li>
+                <li><p>Regression Imputation</p></li>
+                <li><p>Multiple Imputation</p></li>
+            </ul><br/>
+            <i><div class="p1" style="font-size: 14;">Case Substitution</div></i>
+            <p>The method most widely used to replace observations with completely missing
+                data. Cases are simply replaced by non-sampled observations. Only a researcher with
+                complete knowledge of the data (and its history) should have the authority to replace
+                missing data with values from previous research. For example, if the records were lost
+                for an automobile test sample, an authorized researcher could review similar previous test
+                results and determine if they could be substituted for the lost sample values. If it were
+                found that all automobiles had nearly identical sample results for the first 10,000 miles
+                of the test, then these results could easily be used in place of the lost sample values.</p><br/>
+
+                <i><div class="p1" style="font-size: 14;">Mean Substitution</div></i>
+                <p>Accomplished by estimating missing values by using the mean of the recorded or available values. This is a popular imputation method for replacing missing data. However, it is important to calculate the mean only from responses that been proven to be valid and are chosen from a population that has been verified to have a normal distribution. If the data is proven to be skewed, it is usually better to use the median of the available data as the substitute. For example, suppose that respondents to a survey are asked to provide their income levels and choose not to respond. If the mean income from an availably normal and verified distribution is determined to be $48,250, then any missing income values are assigned that value. Otherwise, the use of the median is considered as an alternative replacement value.</p>
+<p>The rationale for using the mean for missing data is that, without any additional knowledge, the mean provides the best estimate. There are three main disadvantages to mean substitution:</p>
+<div class="p1">
+<ol><div class="p1">
+    <li><div class="p1">Variance estimates derived using this new mean are invalid by the understatement of the true variance.</div></li>
+    <li><div class="p1">The actual distribution of values is distorted. It would appear that more observations fall into the category containing the calculated mean than may actually exist.</div></li>
+    <li><div class="p1">Observed correlations are depressed due to the repetition of a single constant
+        value.</div></li></ol></div><br/>
+
+        
+
+        <p style="text-align: right; margin-top: 1cm;">pg.no: 09</p><br/>
+    </div>
+  </div>
+  <!--------------------------------next page-------------------------------------------------------->
+
+  <div class="section">
+    <div class="content-container">
+        <br/>
+        <p>Mean imputation is a widely used method for dealing with missing data. The main
+            advantage is its ease of implementation and ability to provide all cases with complete
+            information. A researcher must weigh the advantages against the disadvantages. These
+            are dependent upon the application being considered.
+            </p><br/>
+            <i><div class="p1" style="font-size: 14;">Cold Deck Imputation</div></i>
+            <p>Cold Deck Imputation methods select values or use relationships obtained from
+                sources other than the current database (Kalton & Kasprzyk, 1982,1986; Sande, 1982,
+                1983). With this method, the end-user substitutes a constant value derived from external
+                sources or from previous research for the missing values. It must be ascertained by the
+                end-user that the replacement value used is more valid than any internally derived value.
+                Unfortunately, feasible values are not always provided using cold deck imputation
+                methods. Many of the same disadvantages that apply to the mean substitution method
+                apply to cold deck imputation. Cold deck imputation methods are rarely used as the sole
+                method of imputation and instead are generally used to provide starting values for hot
+                deck imputation methods. Pennell (1993) contains a good example of using cold deck
+                imputation to provide values for an ensuing hot deck imputation application. Hot deck
+                imputation is discussed next.</p><br/>
+                <i><div class="p1" style="font-size: 14;">Hot Deck Imputation</div></i>
+                <p>The implementation of this imputation method results in the replacement of a missing value with a value selected from an estimated distribution of similar responding units for each missing value. In most instances, the empirical distribution consists of values from responding units. Generally speaking, hot deck imputation replaces missing values with values drawn from the next most similar case. This method is very common in practice, but has received little attention in the missing data literature (although one paper utilizing SAS to perform hot deck imputation was written by Iannacchione (1982)).</p>
+<p>For example, Table 1 displays the following data set. From Table 1, it is noted that case three is missing data for item four. Using hot deck imputation, each of the other cases with complete data is examined and the value for the most similar case is substituted for the missing data value. In this example, case one, two, and four are examined. Case four is easily eliminated, as it has nothing in common with</p>
+<br/>
+<i><div class="p1">Table 1: Illustration of Hot Deck Imputation: Incomplete data set</div></i><br/>
+<center><table style="border: 1px solid black; border-collapse: collapse; font-size: small; text-align: center;">
+    <tr>
+      <th style="border: 1px solid black; padding: 5px; font-weight: bold;">Case</th>
+      <th style="border: 1px solid black; padding: 5px; font-weight: bold;">Item 1</th>
+      <th style="border: 1px solid black; padding: 5px; font-weight: bold;">Item 2</th>
+      <th style="border: 1px solid black; padding: 5px; font-weight: bold;">Item 3</th>
+      <th style="border: 1px solid black; padding: 5px; font-weight: bold;">Item 4</th>
+    </tr>
+    <tr>
+      <td style="border: 1px solid black; padding: 5px; font-weight: bold;">1</td>
+      <td style="border: 1px solid black; padding: 5px;">10</td>
+      <td style="border: 1px solid black; padding: 5px;">2</td>
+      <td style="border: 1px solid black; padding: 5px;">3</td>
+      <td style="border: 1px solid black; padding: 5px;">5</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid black; padding: 5px; font-weight: bold;">2</td>
+      <td style="border: 1px solid black; padding: 5px;">13</td>
+      <td style="border: 1px solid black; padding: 5px;">10</td>
+      <td style="border: 1px solid black; padding: 5px;">3</td>
+      <td style="border: 1px solid black; padding: 5px;">13</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid black; padding: 5px; font-weight: bold;">3</td>
+      <td style="border: 1px solid black; padding: 5px;">5</td>
+      <td style="border: 1px solid black; padding: 5px;">10</td>
+      <td style="border: 1px solid black; padding: 5px;">3</td>
+      <td style="border: 1px solid black; padding: 5px;">???</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid black; padding: 5px; font-weight: bold;">4</td>
+      <td style="border: 1px solid black; padding: 5px;">2</td>
+      <td style="border: 1px solid black; padding: 5px;">5</td>
+      <td style="border: 1px solid black; padding: 5px;">10</td>
+      <td style="border: 1px solid black; padding: 5px;">2</td>
+    </tr>
+  </table>
+  
+  </center>
+
+        <p style="text-align: right; margin-top: 1cm;">pg.no: 10</p><br/>
+    </div>
+  </div>
+  <!----------------------next page------------------------------------------------------------>
+
+  <div class="section">
+    <div class="content-container"><br/>
+        <i><div class="p1">Table 2: Illustration of Hot Deck Imputation: Imputed data set</div></i><br/>
+       <center> <table style="border: 1px solid black; border-collapse: collapse; font-size: small;">
+        <tr>
+          <th style="border: 1px solid black; padding: 5px; font-weight: bold;">Case</th>
+          <th style="border: 1px solid black; padding: 5px; font-weight: bold;">Item 1</th>
+          <th style="border: 1px solid black; padding: 5px; font-weight: bold;">Item 2</th>
+          <th style="border: 1px solid black; padding: 5px; font-weight: bold;">Item 3</th>
+          <th style="border: 1px solid black; padding: 5px; font-weight: bold;">Item 4</th>
+        </tr>
+        <tr>
+          <td style="border: 1px solid black; padding: 5px; font-weight: bold;">1</td>
+          <td style="border: 1px solid black; padding: 5px;">10</td>
+          <td style="border: 1px solid black; padding: 5px;">2</td>
+          <td style="border: 1px solid black; padding: 5px;">3</td>
+          <td style="border: 1px solid black; padding: 5px;">5</td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid black; padding: 5px; font-weight: bold;">2</td>
+          <td style="border: 1px solid black; padding: 5px;">13</td>
+          <td style="border: 1px solid black; padding: 5px;">10</td>
+          <td style="border: 1px solid black; padding: 5px;">3</td>
+          <td style="border: 1px solid black; padding: 5px;">13</td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid black; padding: 5px; font-weight: bold;">3</td>
+          <td style="border: 1px solid black; padding: 5px;">5</td>
+          <td style="border: 1px solid black; padding: 5px;">10</td>
+          <td style="border: 1px solid black; padding: 5px;">3</td>
+          <td style="border: 1px solid black; padding: 5px;">13</td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid black; padding: 5px; font-weight: bold;">4</td>
+          <td style="border: 1px solid black; padding: 5px;">2</td>
+          <td style="border: 1px solid black; padding: 5px;">5</td>
+          <td style="border: 1px solid black; padding: 5px;">10</td>
+          <td style="border: 1px solid black; padding: 5px;">2</td>
+        </tr>
+      </table></center><br/>
+      <div class="p1">case three. Case one and two both have similarities with case three. Case one has one
+        item in common whereas case two has two items in common. Therefore, case two is the
+        most similar to case three.</div>
+        <p>Once the most similar case has been identified, hot deck imputation substitutes the
+            most similar complete case’s value for the missing value. Since case two contains the
+            value of 13 for item four, a value of 13 replaces the missing data point for case three.
+            Table 2 provides the following revised data set displays the hot deck imputation
+            results.</p>
+            <p>The advantages of hot deck imputation include conceptual simplicity, maintenance
+            and proper measurement level of variables, and the availability of a complete set of data
+            at the end of the imputation process that can be analyzed like any complete set of data.
+            One of hot deck’s disadvantages is the difficulty in defining what is “similar”. Hence,
+            many different schemes for deciding on what is “similar” may evolve.</p><br/>
+
+    <i><div class="p1" style="font-size: 14;">Regression Imputation</div></i>
+    <p>Single and multiple regression can be used to impute missing values. Regression
+        Analysis is used to predict missing values based on the variable’s relationship to other
+        variables in the data set. The first step consists of identifying the independent variables
+        and the dependent variables. In turn, the dependent variable is regressed on the
+        independent variables. The resulting regression equation is then used to predict the
+        missing values. Table 3 displays an example of regression imputation.</p>
+        <p>From the table, twenty cases with three variables (income, age, and years of college
+        education) are listed. Income contains missing data and is identified as the dependent
+        variable while age and years of college education are identified as the independent
+        variables.</p>
+        <p>The following regression equation is produced for the example:</p><br/>
+      <p>ˆ y = 33912.14 + 300.87(age) + 1554.25(years of college education)</p><br/>
+        <p>Predictions of income can be made using the regression equation. The right-most
+        column of the table displays these predictions. Therefore, for cases eighteen, nineteen,
+        and twenty, income is predicted to be $59,785.56, $50,659.64, and $53,417.37, respectively.</p>
+        <p>An advantage to regression imputation is that it preserves the variance and covariance
+        structures of variables with missing data.</p><br/>
+
+          
+        <p style="text-align: right; margin-top: 1cm;">pg.no: 11</p><br/>
+    </div>
+  </div>
+  <!-----------------------------------next page--------------------------------------------------->
+  <div class="section">
+    <div class="content-container"><br/>
+        <i><div class="p1">Table 2: Illustration of Hot Deck Imputation: Imputed data set</div></i><br/>
+        <center>
+            <table >
+                <style>
+                  table {
+                    width: 60%;
+                    border-collapse: collapse;
+                    font-size: small;
+                  }
+                  th, td {
+                    text-align: center;
+                    padding: 8px;
+                  }
+                  th {
+                  border-top: 2px solid black;
+                    border-bottom: 2px solid black;
+                  }
+                  tr:last-child td {
+                    border-bottom: 2px solid black;
+                  }
+                </style>
+                  <tr >
+                    <th >Case</th>
+                    <th>Income</th>
+                    <th >Age</th>
+                    <th> Year of College<br/>Education</th>
+                    <th>Prediction</th>
+                  </tr>
+                  <tr>
+                    <td>1</td>
+                    <td>$45,251.25</td>
+                    <td>26</td>
+                    <td>4</td>
+                    <td>$47,951.79</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>$62,498.27</td>
+                    <td>45</td>
+                    <td>6</td>
+                    <td>$56,776.85</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>$49,350.32</td>
+                    <td>28</td>
+                    <td>5</td>
+                    <td>$50,107.78</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>$46,424.92</td>
+                    <td>28</td>
+                    <td>4</td>
+                    <td>$48,553.54</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>$56,077.27</td>
+                    <td>46</td>
+                    <td>4</td>
+                    <td>$53,969.22</td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>$51,776.24</td>
+                    <td>38</td>
+                    <td>4</td>
+                    <td>$51,562.25</td>
+                  </tr>
+                  <tr>
+                    <td>7</td>
+                    <td>$51,410.97</td>
+                    <td>35</td>
+                    <td>4</td>
+                    <td>$50,659.64</td>
+                  </tr>
+                  <tr>
+                    <td>8</td>
+                    <td>$64,102.33</td>
+                    <td>50</td>
+                    <td>6</td>
+                    <td>$58,281.20</td>
+                  </tr>
+                  <tr>
+                    <td>9</td>
+                    <td>$45,953.96</td>
+                    <td>45</td>
+                    <td>3</td>
+                    <td>$52,114.10</td>
+                  </tr>
+                  <tr>
+                    <td>10</td>
+                    <td>$50,818.87</td>
+                    <td>52</td>
+                    <td>5</td>
+                    <td>$57,328.70</td>
+                  </tr>
+                  <tr>
+                    <td>11</td>
+                    <td>$49,078.98</td>
+                    <td>30</td>
+                    <td>0</td>
+                    <td>$42,938.29</td>
+                  </tr>
+                  <tr>
+                    <td>12</td>
+                    <td>$61,657.42</td>
+                    <td>50</td>
+                    <td>6</td>
+                    <td>$58,281.20</td>
+                  </tr>
+                  <tr>
+                    <td>13</td>
+                    <td>$54,479.90</td>
+                    <td>46</td>
+                    <td>6</td>
+                    <td>$57,077.72</td>
+                  </tr>
+                  <tr>
+                    <td>14</td>
+                    <td>$64,035.71</td>
+                    <td>48</td>
+                    <td>6</td>
+                    <td>$57,679.46</td>
+                  </tr>
+                  <tr>
+                    <td>15</td>
+                    <td>$51,651.50</td>
+                    <td>50</td>
+                    <td>6</td>
+                    <td>$58,281.20</td>
+                  </tr>
+                  <tr>
+                    <td>16</td>
+                    <td>$46,326.93</td>
+                    <td>31</td>
+                    <td>3</td>
+                    <td>$47,901.90</td>
+                  </tr>
+                  <tr>
+                    <td>17</td>
+                    <td>$53,742.71</td>
+                    <td>50</td>
+                    <td>4</td>
+                    <td>$55,172.71</td>
+                  </tr>
+                  <tr>
+                    <td>18</td>
+                    <td>???</td>
+                    <td>55</td>
+                    <td>6</td>
+                    <td>$59,785.56</td>
+                  </tr>
+                  <tr>
+                    <td>19</td>
+                    <td>???</td>
+                    <td>35</td>
+                    <td>4</td>
+                    <td>$50,659.64</td>
+                  </tr>
+                  <tr>
+                    <td>20</td>
+                    <td>???</td>
+                    <td>39</td>
+                    <td>5</td>
+                    <td>$53,417.37</td>
+                  </tr>
+                </table>
+                
+        </center><br/>
+        <p>Although regression imputation is useful for simple estimates, it has several
+            inherent disadvantages:</p>
+            <div class="p1">
+            <ol>
+                <li>
+                    <div class="p1">This method reinforces relationships that already exist within the data. As this method is utilized more often, the resulting data becomes more reflective of the sample and becomes less generalizable to the universe it represents.</div>
+                </li>
+                <li>
+                    <div class="p1">The variance of the distribution is understated.</div>
+                </li>
+                <li>
+                    <div class="p1">The assumption is implied that the variable being estimated has a substantial correlation to other attributes within the data set.</div>
+                </li>
+                <li>
+                    <div class="p1">The estimated value is not constrained and therefore may fall outside predetermined boundaries for the given variable. An additional adjustment may be necessary.</div>
+                </li>
+            </ol></div><br/>
+            <p>In addition to these points, there is also the problem of over-prediction. Regression imputation may lead to over-prediction of the model’s explanatory power. For example, if the regression R<sup>2</sup> is too strong, multicollinearity most likely exists. Otherwise, if the...</p>
+        </body>
+
+        <p style="text-align: right; margin-top: 1cm;">pg.no: 12</p><br/>
+    </div>
+  </div>
+  <!-------------------------------next page ---------------------------------------------->
+  <div class="section">
+    <div class="content-container"><br/>
+
+        <div class="p1"><strong>R<sup>2</sup> value</strong> is modest, errors in the regression prediction equation will be substantial (see Graham et al., 1994).</div>
+    <p>Mean imputation can be regarded as a special type of regression imputation. For data where the relationships between variables is sufficiently established, regression imputation is a very good method of imputing values for missing data.</p>
+    <p>Overall, regression imputation not only estimates the missing values but also derives inferences for the population (see discussion of variance and covariance above). For discussions on regression imputation see Royall and Herson (1973), Hansen, Madow, and Tepping (1982).</p><br/>
+    <i><div class="p1" style="font-size: 14;">Multiple Imputation</div></i>
+    <p>Rubin (1978) was the first to propose multiple imputation as a method for dealing with missing data. Multiple imputation combines a number of imputation methods into a single procedure. In most cases, expectation maximization (see Little &amp; Rubin, 1987) is combined with maximum likelihood estimates and hot deck imputation to provide data for analysis. The method works by generating a maximum likelihood covariance matrix and a mean vector. Statistical uncertainty is introduced into the model and is used to emulate the natural variability of the complete database. Hot deck imputation is then used to fill in missing data points to complete the data set. Multiple imputation differs from hot deck imputation in the number of imputed data sets generated. Whereas hot deck imputation generates one imputed data set to draw values from, multiple imputation creates multiple imputed data sets.</p>
+    <p>Multiple imputation creates a summary data set for imputing missing values from these multiple imputed data sets. Multiple imputation has a distinct advantage in that it is robust to the normalcy conditions of the variables used in the analysis and it outputs complete data matrices. The method is time intensive as the researcher must create the multiple data sets, test the models for each data set separately, and then combine the data sets into one summary set. The process is simplified if the researcher is using basic regression analysis as the modeling technique. It is much more complex when models such as factor analysis, structural equation modeling, or high order regression analysis are used.</p>
+    <p>A comprehensive handling of multiple imputation is given in Rubin (1987) and Schafer (1997). Other seminal works include Rubin (1986), Herzog and Rubin (1983), Li (1985), and Rubin and Schenker (1986).</p>
+        <br/>
+    <b><h4>Model-Based Procedures</h4></b>
+    <p>Model-based procedures incorporate missing data into the analysis. These procedures are characterized in one of two ways: maximum likelihood estimation or missing data inclusion.</p>
+    <p>Dempster, Little, and Rubin (1977) give a general approach for computing maximum likelihood estimates from missing data. They call their technique the EM approach. The approach consists of two steps, “E” for the conditional expectation step and “M” for the maximum likelihood step. The EM approach is an interactive method. The first step makes the best possible estimates of the missing data, and the second step then makes estimates of the parameters (e.g., means, variances, or correlations) assuming the missing.</p>
+
+
+
+        <p style="text-align: right; margin-top: 1cm;">pg.no: 13</p><br/>
+    </div>
+  </div>
+  <!------------------next page--------------------------------------------------------------->
+  <div class="section">
+    <div class="content-container"><br/>
+        <div class="p1">data are replaced. Each of the stages is repeated until the change in the estimated values
+            is negligible. The missing data is then replaced with these estimated values. This
+            approach has become extremely popular and is included in commercial software packages
+            such as SPSS. Starting with SPSS 7.5, a missing value module employing the EM
+            procedure for treating missing data is included.</div>
+            <p>Cohen and Cohen (1983) prescribe inclusion of missing data into the analysis. In
+                general, the missing data is grouped as a subset of the entire data set. This subset of
+                missing data is then analyzed using any standard statistical test. If the missing data
+                occurs on a non-metric variable, statistical methods such as ANOVA, MANOVA, or
+                discriminant analysis can be used. If the missing data occurs on a metric variable in a
+                dependence relationship, regression can be used as the analysis method.</p><br/>
+
+                <b><h3>THE IMPACT OF MISSING DATA ON
+                    DATA-MINING ALGORITHMS</h3></b>
+                    <p>Missing data impacts the Knowledge Discovery Process in various ways depending on which data-mining algorithm is being utilized. We will now address the impact of
+                        missing data on various types of data mining algorithms.</p><br/>
+            <b><h4>The Impact on the k-Nearest Neighbor Algorithm</h4></b>
+            <p>The very nature of the k-Nearest Neighbor algorithm is based on the accuracy of the data. Missing and inaccurate data have a severe impact on the performance of this type of algorithm. If data is missing entirely, misrepresented clusters (data distributions) can occur depending upon the frequency and categorization of the cases containing the missing data. One method to help solve this problem is to use the k-Nearest Neighbor data-mining algorithm itself to approach the missing data problem. The imputed values obtained can be used to enhance the performance of the Nearest Neighbor algorithm itself.</p>
+            <p>First, the k-Nearest Neighbors (those containing no missing data) to the observation that does contain missing data are identified. The k stands for a predetermined constant representing the number of neighbors containing no missing data to be considered in the analysis. According to Witten and Frank (2000), it is advised to keep the value for k small, say five, so that the impact of any noise present will be kept to a minimum.</p>
+            <p>Hence, this algorithm is not recommended for large data sets (Adriaans & Zantinge, 1996). Once these “neighbors” have been identified, the majority class for the attribute in question can be assigned to the case containing the missing value. Berson, Smith and Thearling (2000) maintained that an historical database containing attributes containing similar predictor values to those in the offending case can also be utilized to aid in the classification of unclassified records.</p>
+            <p>Of course, the three main disadvantages mentioned in the imputation section (variance understatement, distribution distortion, and correlation depression) should be addressed whenever a constant value is used to replace missing data. The proportion</p>
+
+        <p style="text-align: right; margin-top: 1cm;">pg.no: 14</p><br/>
+    </div>
+  </div>
+  <!-------------------------------------next page--------------------------------------------->
+  <div class="section">
+    <div class="content-container"><br/>
+
+        <div class="p1">of values replaced should be calculated and compared to all clusters and category
+            identification that existed prior to the replacement of the missing data.</div>
+            <p>Further, inaccurate data and outliers must be identified. Predetermined “impossible” and “improbable” values are determined, along with minimum and maximum
+                boundary thresholds, to act as identifiers for inaccurate data and outliers. The “closeness” of values to these boundaries can be determined using the Euclidean distance
+                between the two points (Han & Kamber, 2001). These values are then visualized to the
+                end-user and treated as though the data were actually missing. An imputation method
+                is then selected and implemented as previously described to replace offending values.</p><br/>
+    
+    <b><h4>The Impact on Decision Trees</h4></b>
+    <p>If missing data is a frequent occurrence in the data mining application in question,
+        decision trees are a good methodology for dealing with them (Berry & Linoff, 1997).</p>
+        <p>They also scale up very well for large data sets (Adriaans & Zantinge, 1997).</p>
+        <p>A popular method utilized when using decision trees is to treat the missing values
+            as if they were an actual data type for a given attribute. In fact, an entire coding scheme
+            may be developed for any number of types of missing data that may be identified in a given
+            system. A separate branch for missing data may be implemented into a tree for a given
+            attribute and various limbs developed for each of the missing data code types.</p>
+            <p>For instance, data that is known but “not yet” entered could be coded as “NYE,”
+                while data that does not apply to particular case may be entered as “DNA.”</p>
+                <p>When missing data is to be replaced, a popular solution is to record the number of
+                    elements in the training set that follows each branch for a that particular attribute and
+                    then use the most popular branch as the default replacement value for the missing data.
+                    However, any of the aforementioned imputation methods could be utilized to replace the
+                    missing data.</p>
+            <p>It is sometimes useful to prune the tree whenever there is an overabundance of
+                missing data in certain branches (Berry & Linoff, 1997). Eliminating particular paths may
+                be necessary to ensure that the overall success of the decision-making process is not
+                inhibited by the inclusion of cases containing missing data. Witten and Frank (2000)
+                advise the use of prepruning during the tree-building process to determine when to stop
+                developing subtrees. Postpruning can be utilized after a tree is completely built. If one
+                chooses postpruning, decisions for pruning rules can then be made after the tree has
+                been built and analyzed.</p><br/>
+                <b><h4>The Impact on Association Rules</h4></b>
+                <p>Association Rules help to identify how various attribute values are related within
+                    a data set. They are developed to predict the value of an attribute (or sets of attributes)
+                    in the same data set (Darling, 1997). Since Association Rules are often developed to
+                    help identify various regularities (patterns) within a data set, algorithms that utilize
+                    association rules have been found to work best with large data sets. Attributes
+                    containing missing or corrupted data values may easily result in the creation of invalid
+                    rule sets or in the failure of identifying valid patterns that normally exist within the data.
+                    Since the main focus of association rule discovery is to identify rules that apply to large</p>
+
+
+
+
+        <p style="text-align: right; margin-top: 1cm;">pg.no: 15</p><br/>
+    </div>
+  </div>
+  <!-------------------------------------------------next page----------------------------------------------------------->
+  <div class="section">
+    <div class="content-container"><br/>
+        <div class="p1">numbers of cases to which the rules can directly relate, missing data may overstate both
+            the support and the confidence of any newly discovered rules sets (Witten & Frank,
+            2000).</div>
+            <p>However, if the data set used to train the algorithm contains only “pristine” data,
+                overfitting the model based on the patterns included in the training set typically results.</p>
+
+<p>Therefore, rules need to be developed for the “exceptions-to-rule” sets that have
+    been developed in violation of correct or “clean” data. It is then necessary to populate
+    the training set for algorithms that utilize Association Rules with a sufficient percentage
+    of “noisy data,” representing all possible types of exceptions to existing rules. In this
+    way,exception rules can be developed to handle all patterns of noise that may be
+    associated with a given data set, rather than redesigning rule sets that deal with “clean”
+    data or attempting to force cases that do not belong to existing rule sets into those sets.</p>
+
+    <p>Default outcomes should normally be defined for exception rules as well as for
+        “normal” data. The most frequently occurring outcome (type of missing data or noise)
+        is chosen as the default outcome.</p>
+
+        <p>As exceptions are discovered for initial exceptions, a type of tree structure is
+            created, forming a decision list for the treatment of missing and noisy data for the data
+            set. It becomes necessary to utilize both propositional rules and relational rules in the
+            rule set for the treatment of missing or noisy data.</p>
+            <p>Propositional rules test an attribute’s value against a constant value, thereby
+                developing very concise limits to delineate between “clean” and “noisy” data. In extreme
+                instances, the constants, breakpoints, and values from associated attributes are used to
+                grow a regression tree in order to estimate missing data values under various conditions.</p>
+
+                <p>As these regression trees become larger they can also be utilized as a model tree
+                    for a missing data rule set. Relational rules are used to test the relationships between
+                    attributes. For nominal attributes, tests are made for equality and inequality. Numeric
+                    attributes, on the other hand, test the conditions of less than, greater than, less than or
+                    equal to, and greater than or equal to.</p>
+
+                    <p>Incorporating an additional rule or rule set to deal with exceptions (such as missing
+                        data) can easily be accomplished since some rules may be developed to predict multiple
+                        outcomes. Failure to allow for the missing data exception may easily misrepresent some
+                        of the associations between attributes.</p>
+
+                        <p>Although a rule may have both high support and confidence, a subjective evaluation by the end-user may determine how interesting a newly discovered rule is (Groth,
+                            2000). Some association rule software packages may be trained to automatically prune
+                            “uninteresting rules.” Therefore, minimum values (breakpoints) must be established for
+                            both the confidence and support of newly discovered rules. In some instances, a
+                            hierarchy of rules can be developed so that some rules may imply other rules. In some
+                            cases, only the strongest rule is presented as a newly discovered rule and rules of “lesser
+                            strength” (support and confidence) are linked to the stronger rule for use at a later time
+                            (Han & Kamber, 2001). These resulting item sets may also be stored as metadata for
+                            further investigation as the process of final evaluation and pruning takes place by the
+                            end-user.</p>
+
+        <p style="text-align: right; margin-top: 1cm;">pg.no: 17</p><br/>
+    </div>
+  </div>
+  <!--------------------next page--------------------------------------------------------------------------------->
+
+  <div class="section">
+    <div class="content-container"><br/>
+        <b><h4>The Impact on Neural Networks</h4></b>
+
+
+        <p>Since neural networks have been found to be both reliable and effective when applied to applications involving prediction, classification, and clustering (Adriaans &amp; Zantinge, 1997), it can be seen that the issue of missing data has a similar impact on neural networks as it does on other types of classification algorithms, such as k-Nearest Neighbor. These similarities include variance understatement, distribution distortion, and correlation depression.</p>
+        <p>Since the internal weights used to calculate outputs are created and distributed within the network without providing the insight as to how a solution is developed, missing or dirty data can distort the weights that are assigned as the associations between nodes in a manner unknown to the research analyst. Further, numeric outliers containing extremely large values tend to “swamp” attributes of lesser value, which can impact the correlations between both these and other attributes. These distorted weights can throw off the performance of the entire network while also falsely identifying some attributes as being “more important” than others (Han &amp; Kamber, 2001).</p>
+        <p>Categorical attributes containing missing data may also be impacted negatively. Since data used as input to a neural network is usually massaged to values between 0 and 1, a categorical attribute containing five values (say, 0.0, 0.25, 0.50, 0.75, and 1.0) can be grossly misrepresented whenever missing data is heavy for that attribute (Berson, Smith, &amp; Thearling, 2000). For instance, if our chemical breakdown analysis were to contain a categorical attribute that rated the breakdown as:</p>
+        <br/>
+        <div class="p1"> 0.0=Rejected &nbsp;&nbsp;&nbsp;0.25=Poor&nbsp;&nbsp;&nbsp; 0.50=Fair&nbsp;&nbsp;&nbsp; 0.75=Good &nbsp;&nbsp;&nbsp;1.0=Excellent,</div>
+            <br/>
+        <div class="p1">that attribute contained a high degree of missing data, an overall rating value for multiple tests can easily be misclassified (when unmassaged) as “Good” or “Poor” rather than perhaps a more accurate rating of “Fair.”</div>
+        <p>Another point regarding the issue of missing data and neural networks is that it may be necessary to “train” the initial network with missing data if the data to be tested and evaluated later is itself going to contain missing data. By training the network with only “clean” data, the internal weights developed using the training set cannot be accurately applied to the test set later.</p>
+        <p>In conjunction with the issue of training the model with a representative amount of missing data, it must also be remembered to refresh the model with a certain amount of missing data. This is done so that, as the model ages, it does not become insensitive to the fact that the application does, in fact, face missing data as input when the network is actually being utilized with fresh data.</p>
+        <p>These issues may be regarded as simply “housekeeping” functions when using neural networks. If an application involves the use of missing data as input, it only makes sense to both train and refresh the training set with a similar percentage of missing data.</p>
+        <p>How does missing data actually impact the internal execution of the neural network? While the hidden layer is where the actual weights are developed for the network, the activation function combines the inputs to the network into a single output (Westphal &amp; Blaxton, 1998). The output remains low until the combined inputs reach a predeter-</p>
+    </body>
+
+
+        <p style="text-align: right; margin-top: 1cm;">pg.no: 17</p><br/>
+    </div>
+  </div>
+  <!-----------------------------next page -------------------------------------------------------->
+  <div class="section">
+    <div class="content-container"><br/>
+
+        <div class="p1">mined threshold, and small changes to the input can have a dramatic effect on the output
+            (Groth, 2000). The activation function can be very sensitive to missing data.</div>
+            <p>Let’s take this a step further. The activation function of the basic unit of a neural network has two sub-functions: the combination function and the transfer function.</p>
+            <p> The combination function commonly uses the “standard weighted sum” (the summation of the input attribute values multiplied by the weights that have been assigned to those attributes) to calculate a value to be passed on to the transfer function.</p> 
+            <p>The transfer function applies either a linear or non-linear function to the value passed to it by the combination function. Even though a linear function used in a feedforward neural network is simply performing a linear regression, missing values can distort the coefficients in the regression equation and therefore pass on invalid values as output (Berry &amp; Linoff, 1997).</p>
+    <p>Between the linear and non-linear function types is the most commonly used transfer function: the S-Shaped Sigmoid Function. This function represents a gradual change from a linear model to a non-linear model and is the transfer function most commonly used in “off the shelf” neural network packages. Since the result of the combination function is usually between –1 and 1, the function is deemed “near-linear” and satisfies most linear and non-linear applications. However, the impact of missing data on the sigmoid function goes back to how the combination function derives its value for the sigmoid function to act upon (Skapura, 1995).</p>
+
+    <br/>
+    <b><h3>FUTURE TRENDS</h3></b>
+    <p>Poor data quality has plagued the knowledge discovery process and all associated data-mining techniques. Future data-mining systems should be sensitive to noise and have the ability to deal with all types of pollution, both internally and in conjunction with end-users. As data gathers noise, the system should only reduce the level of confidence associated with the results provided and not “suddenly alter” the direction of discovery. We cannot dismiss the dangers of blind data mining that can deteriorate into a data-dredging process. Systems should still produce the most significant findings from the data set possible, even if noise is present. Systems will be robust against uncertainty and missing data issues (Fayyad &amp; Piatetsky-Shapiro, 1996).</p>
+    <p>As software products evolve and new data-mining algorithms are developed, alternative methods for the identification and deletion/replacement of missing data will also be developed. New hybrid methodologies for dealing with noisy data will continue to evolve as end-users uncover previously undiscovered patterns of missing data within their applications. Commonality of patterns discovered within a particular industry should result in the sharing of new methodologies for dealing with these discoveries. Warehousing missing data patterns and allowing end-users the capability of selecting and testing a variety of patterns and imputation methods will become commonplace, in-house and in the public domain.</p>
+    <p>Software from other applications in the software industry will also prove to positively impact the area of data cleansing and preparation for proper data mining. For instance, simulation software using various approaches for prediction and projection.</p>
+
+
+
+        <p style="text-align: right; margin-top: 1cm;">pg.no: 18</p><br/>
+    </div>
+  </div>
+  <!----------------------------------------------------next page --------------------------------------------------------->
+  <div class="section">
+    <div class="content-container"><br/>
+        <div class="p1">will be interwoven with current techniques to form new hybrids for the estimation of
+            missing values. Software for sensitivity analysis and noise tolerance will also be utilized
+            to determine a measurement of volatility for a data set prior to the deletion/replacement
+            of cases (Chung & Gray, 1999). Maintaining stability without altering original data is an
+            issue that end-users may wish to address, instead of dealing with case deletion or data
+            imputation methods.</div>
+
+            <p>As data mining continues to evolve and mature as a viable business tool, it will be monitored to address its role in the technological life cycle. While data mining is currently regarded as being at the third stage of a six-stage maturity process in technological evolution, it will soon gain momentum and grow into the area of Early Majority. The maturity stages include:</p>
+            <ul>
+                <div class="p1"><li>Innovators;</li></div>
+                <div class="p1"><li>Early Adopters;</li></div>
+                <div class="p1"><li>Chasm;</li></div>
+                <div class="p1"><li>Early Majority;</li></div>
+                <div class="p1"><li>Late Majority; and</li></div>
+                <div class="p1"><li>Laggards.</li></div>
+            </ul><br/>
+            <p>The “chasm” stage is characterized by various hurdles and challenges that must be met before the technology can become widely accepted as mainstream. As tools for the preprocessing and cleansing of noisy data continue to be proven to be effective, advancement toward a level of “early majority” (where the technology becomes mature and is generally accepted and used) will be accomplished.</p>
+            <p>Tools for dealing with missing data will also grow from being used as a horizontal solution (not designed to provide business-specific end solutions) into a type of vertical solution (integration of domain-specific logic into data mining solutions). As the gigabyte-, terabyte-, and petabyte-size data sets become more prevalent in data warehousing applications, the issue of dealing with missing data will itself become an integral solution for the use of such data rather than simply existing as a component of the knowledge discovery and data mining processes (Han &amp; Kamber, 2001).</p>
+            <p>As in other maturing applications, missing or incomplete data will be looked upon as a global issue. Finding clues to terrorist activities will be uncovered by utilizing textual data-mining techniques for incomplete and unstructured data (Sullivan, 2001). For instance, monitoring links and searching for trends between news reports from commercial news services may be used to glean clues from items in cross-cultural environments that might not otherwise be available.</p>
+            <p>Although the issue of statistical analysis with missing data has been addressed since the early 1970s (Little &amp; Rubin, 1987), the advent of data warehousing, knowledge discovery, data mining, and data cleansing has brought the concept of dealing with missing data into the limelight. Costs associated with the deletion of data will make the imputation of data a focal point for independent data-sleuthing entities. For example, an independent firm involved in the restructuring of incomplete data sets will be able to obtain or purchase fragmented data that has been deemed unusable by mainstream corporations and produce complete data with a level of support worthy of use in actual production environments.</p>
+    
+
+
+        <p style="text-align: right; margin-top: 1cm;">pg.no: 19</p><br/>
+    </div>
+  </div>
+  <!----------------------------------------------next page ------------------------------------------------------>
+  <div class="section">
+    <div class="content-container"><br/>
+        <p>An extended topic in this arena will be the ownership of such newly created data sets and/or algorithms and imputation methods that are discovered within an application or industry. What if an independent firm discovers new knowledge based on findings from data sets that were originally incomplete and made available by outside firms? Are the discoveries partially owned by both firms? It is up to the legal system and the parties involved to sort out these issues.</p>
+    <p>It can be seen that future generations of data miners will be faced with many challenges concerning the issues of missing data. As the industry as a whole continues to evolve and mature, so will end-user expectations of having various, readily available methods of dealing with missing data.</p>
+<br/><br/>
+
+<b><h3>CONCLUSIONS</h3></b>
+<p>The issues concerning the impact of inconsistent data and missing data are a fact of life in the world of knowledge discovery and data mining. They must be faced with rigor by developers of new data-mining applications before viable decisions can be developed by the end-users of these systems.</p>
+    <p>Following a background analysis and literature review of missing data concepts, the authors addressed reasons for data inconsistency. Included in the discussion were procedural factors, refusal of response, and inapplicable questions. Following was the classification of missing data types into the areas of (data) missing at random (MAR), (data) missing completely at random (MCAR), non-ignorable missing data, and outliers treated as missing data. Next, a review of existing methods for addressing the problem of missing data was conducted for the deletion of cases or variables and various imputation methods. Imputation methods included were case substitution, mean substitution, cold deck imputation, hot deck imputation, regression imputation, and multiple imputation.</p>
+    <p>The impact of missing data on various data mining algorithms was then addressed. The algorithms reviewed included k-Nearest Neighbor, Decision Trees, Association Rules, and Neural Networks.</p>
+    <p>Finally, the authors offered their opinions on future developments and trends that developers of knowledge discovery software can expect to face, and the needs of end-users when confronted with the issues of data inconsistency and missing data.</p>
+    <p>It is the goal of the authors that the issues of inconsistent data and missing data be exposed to individuals new to the venues of knowledge discovery and data mining. It is a topic worthy of research and investigation by developers of fresh data-mining applications, as well as a method of review for systems that have already been developed or that are currently under construction.</p>
+    <p>This concludes the chapter concerning the impact of missing data on data mining. It is our sincere hope that readers of this topic have gained a fresh perspective for the necessity of data consistency and an exposure to alternatives for dealing with the issues of missing data.</p>
+
+
+
+
+
+        <p style="text-align: right; margin-top: 1cm;">pg.no: 20</p><br/>
+    </div>
+  </div>
+  <!-----------------------------------------------next page------------------------------------------------------>
+  <div class="section">
+    <div class="content-container"><br/>
+<b><h3>REFERENCES</h3></b><br/>
+<div class="p1">
+    Adriaans, P. & Zantinge, D. (1997). <i>Data mining</i>. New York: Addison-Wesley.
+</div>
+<div class="p1">
+    Afifi, A. & Elashoff, R. (1966). Missing observations in multivariate statistics, I: Review of the literature. <i>Journal of the American Statistical Association</i>, 61:595-604.
+</div>
+<div class="p1">
+    Agrawal, R., Imielinski, T., & Swami, A. (1993). Mining associations between sets of items in massive databases. In <i>Proceedings of the ACM SIGMOD International Conference on Management of Data</i>, Washington, DC, 207-216.
+</div>
+<div class="p1">
+    Agrawal, R., Mannila, H., Srikant, R., Toivonen, H., & Verkamo, A. (1995). Fast discovery of association rules. In <i>Advances in Knowledge Discovery and Data Mining, Chapter 12</i>. Cambridge, MA: AAAI/MIT Press.
+</div>
+<div class="p1">
+    Agrawal, R. & Srikant, R. (1994). Fast algorithms for mining association rules. In <i>Proceedings of the 20th International Conference on Very Large Databases</i>, Santiago de Chile, Chile: Morgan Kaufmann.
+</div>
+<div class="p1">
+    Barnard, J., & Meng, X. (1999). Applications of multiple imputation in medical studies: From AIDS to NHANES. <i>Statistical Methods in Medical Research</i>, 8, 17-36.
+</div>
+<div class="p1">
+    Berry, M. & Linoff, G. (1997). <i>Data mining techniques</i>. New York: Wiley.
+</div>
+<div class="p1">
+    Berson, A., Smith, S., & Thearling, K. (2000). <i>Building data mining applications for CRM</i>. New York: McGraw-Hill.
+</div>
+<div class="p1">
+    Breiman, L., Friedman, J., Olshen, R., & Stone, C. (1984). <i>Classification and regression trees</i>. Monterey, CA: Wadsworth & Brooks/Cole Advanced Books & Software.
+</div>
+<div class="p1">
+    Brick, J. M. & Kalton, G. (1996). Handling missing data in survey research. <i>Statistical Methods in Medical Research</i>, 5, 215-238.
+</div>
+<div class="p1">
+    Chung, H. M. & Gray, P. (1999). Special section: Data mining. <i>Journal of Management Information Systems</i>, 16(1): 11-17.
+</div>
+<div class="p1">
+    Clogg, C., Rubin, D., Schenker, N., Schultz, B., & Weidman, L. (1991). Multiple imputation of industry and occupation codes in census public-use samples using Bayesian logistic regression. <i>Journal of the American Statistical Association</i>, 86, 413, 68-78.
+</div>
+<div class="p1">
+    Cohen, J., and Cohen, P. (1983). <i>Applied multiple regression/correlation analysis for the behavioral sciences</i>, 2nd ed. Hillsdale, NJ: Lawrence Erlbaum Associates.
+</div>
+<div class="p1">
+    Darling, C. B. (1997). Data mining for the masses, <i>Datamation</i>, 52(5).
+</div>
+<div class="p1">
+    David, M., Little, R., Samuhel, M., & Triest, R. (1986). Alternative methods for CPS income imputation. <i>Journal of the American Statistical Association</i>, 81, 29-41.
+</div>
+<div class="p1">
+    Dempster, A., Laird, N., & Rubin, D. (1977). Maximum likelihood from incomplete data via the EM algorithm (with discussion). <i>Journal of the Royal Statistical Society, B39</i>, 1-38.
+</div>
+<div class="p1">
+    Dempster, A. & Rubin, D. (1983). Overview. In W. G. Madow, I. Olkin, & D. Rubin (eds.), <i>Incomplete data in sample surveys, Vol. II: Theory and annotated bibliography</i>. pp.3-10. New York: Academic Press.
+</div>
+<div class="p1">
+    Diggle, P. & Kenward, M. (1994). Informative dropout in longitudinal data analysis (with discussion). <i>Applied Statistics</i>, 43, 49-94.
+</div>
+<div class="p1">
+    Dillman, D. A. (1999). <i>Mail and Internet surveys: The tailored design method</i>. New York, NY: John Wiley & Sons.
+</div>
+<div class="p1">
+    Ernst, L. (1980). Variance of the estimated mean for several imputation procedures. In the Proceedings of the Survey Research Methods Section, Alexandria, VA: American Statistical Association, 716-720.
+</div>
+
+
+
+
+
+        <p style="text-align: right; margin-top: 1cm;">pg.no: 21</p><br/>
+    </div>
+  </div>
+<!---------------------------------------------------------------next page----------------------------------------------------->
+<div class="section">
+    <div class="content-container"><br/>
+
+
+        <div class="p1">
+            Fayyad, U., Piatetsky-Shapiro, G. & Smyth, P. (1996). The KDD process for extracting useful knowledge from volumes of data, <i>Communications of the ACM</i>, 39(11): 27-34, November.
+        </div>
+        <div class="p1">
+            Flockhart, I. & Radcliffe, N. (1996). A genetic algorithm-based approach to data mining. In <i>Proceedings of the ACM SIGMOD International Conference on Management of Data</i>, 299-302.
+        </div>
+        <div class="p1">
+            Ford, B. (1981). An overview of hot deck procedures. In W. G. Madow, I. Olkin, & D. Rubin (eds.), <i>Incomplete data in sample surveys, Vol. II: Theory and annotated bibliography</i>. New York: Academic Press.
+        </div>
+        <div class="p1">
+            Ghahramani, Z. & Jordan, M. (1997). Mixture models for learning from incomplete data. In J. Cowan, G. Tesauro, & J. Alspector (eds.), <i>Advances in Neural Information Processing Systems 6</i>, pp.120-127. San Mateo, CA: Morgan Kaufmann.
+        </div>
+        <div class="p1">
+            Graham, J., Hofer, S., Donaldson, S., MacKinnon, D., & Schafer, J. (1997). Analysis with missing data in prevention research. In K. Bryant, W. Windle, & S. West (eds.), <i>New methodological approaches to alcohol prevention research</i>. Washington, DC: American Psychological Association.
+        </div>
+        <div class="p1">
+            Graham, J., Hofer, S., & Piccinin, A. (1994). Analysis with missing data in drug prevention research. In L. M. Collins & L. Seitz (eds.), <i>Advances in Data Analysis for Prevention Intervention Research</i>. NIDA Research Monograph, Series (#142). Washington, DC: National Institute on Drug Abuse.
+        </div>
+        <div class="p1">
+            Groth, R. (2000). <i>Data mining: Building competitive advantage</i>. Upper Saddle River, NJ: PrenticeHall.
+        </div>
+        <div class="p1">
+            Hair, J., Anderson, R., Tatham, R., & Black, W. (1998). <i>Multivariate data analysis</i>. Upper Saddle River, NJ: PrenticeHall.
+        </div>
+        <div class="p1">
+            Han, J. & Kamber, M. (2001). <i>Data mining: Concepts and techniques</i>. San Francisco: Academic Press.
+        </div>
+        <div class="p1">
+            Hansen, M., Madow, W., & Tepping, J. (1983). An evaluation of model-dependent and probability-sampling inferences in sample surveys. <i>Journal of the American Statistical Association</i>, 78, 776-807.
+        </div>
+        <div class="p1">
+            Hartley, H. & Hocking, R. (1971). The analysis of incomplete data. <i>Biometrics</i>, 27, 783-808.
+        </div>
+        <div class="p1">
+            Haykin, S. (1994). <i>Neural networks: A comprehensive foundation</i>. New York: Macmillan Publishing.
+        </div>
+        <div class="p1">
+            Heitjan, D.F. (1997). Annotation: What can be done about missing data? Approaches to imputation. <i>American Journal of Public Health</i>, 87(4), 548-550.
+        </div>
+        <div class="p1">
+            Herzog, T., & Rubin, D. (1983). Using multiple imputations to handle nonresponse in sample surveys. In G. Madow, I. Olkin, & D. Rubin (eds.), <i>Incomplete data in sample surveys, Volume 2: Theory and bibliography</i>, pp. 209-245. New York: Academic Press.
+        </div>
+        <div class="p1">
+            Holland, J. (1975). <i>Adaptation in natural and artificial systems</i>. Ann Arbor, MI: University of Michigan Press.
+        </div>
+        <div class="p1">
+            Howell, D.C. (1998). Treatment of missing data [Online]. Available <a href="http://www.uvm.edu/~dhowell/StatPages/More_Stuff/Missing_Data/Missing.html">here</a> [2001, September 1].
+        </div>
+        <div class="p1">
+            Iannacchione, V. (1982). Weighted sequential hot deck imputation macros. In the Proceedings of the SAS Users Group International Conference, San Francisco, CA, 7, 759-763.
+        </div>
+
+
+        
+        <p style="text-align: right; margin-top: 1cm;">pg.no: 22</p><br/>
+    </div>
+  </div>
+  <!-----------------------------------------------next page-------------------------------------------------------------->
+  <div class="section">
+    <div class="content-container"><br/>
+
+
+        <div class="p1">
+            Jenkins, C. R., and Dillman, D. A. (1997). Towards a theory of self-administered questionnaire design. In E. Lyberg, P. Bierner, M. Collins, D. Leeuw, C. Dippo, N. Schwartz & D. Trewin (Eds.), <i>Survey measurement and process quality</i>. New York: John Wiley & Sons.
+        </div>
+        <div class="p1">
+            Kalton, G. & Kasprzyk, D. (1982). Imputing for missing survey responses. In the Proceedings of the Section on Survey Research Methods, Alexandria, VA: American Statistical Association, pp.22-31.
+        </div>
+        <div class="p1">
+            Kalton, G. & Kasprzyk, D. (1986). The treatment of missing survey data <i>Survey Methodology</i>, 12: 1-16.
+        </div>
+        <div class="p1">
+            Kalton, G. & Kish, L. (1981). Two efficient random imputation procedures. In the Proceedings of the Survey Research Methods Section, Alexandria, VA: American Statistical Association, pp.146-151.
+        </div>
+        <div class="p1">
+            Kass, G. (1980). An exploratory technique for investigating large quantities of categorical data, <i>Applied Statistics</i>, 29, 119-127.
+        </div>
+        <div class="p1">
+            Kim, Y. (2001). The curse of the missing data [Online]. Available <a href="http://209.68.240.11:8080/2ndMoment/978476655/addPostingForm">here</a> [2001, September 1].
+        </div>
+        <div class="p1">
+            Li, K. (1985). Hypothesis testing in multiple imputation - With emphasis on mixed-up frequencies in contingency tables, Ph.D. Thesis, The University of Chicago, Chicago, IL.
+        </div>
+        <div class="p1">
+            Little, R. (1982). Models for nonresponse in sample surveys. <i>Journal of the American Statistical Association</i>, 77, 237-250.
+        </div>
+        <div class="p1">
+            Little, R. (1992). Regression with missing X’s: A review. <i>Journal of the American Statistical Association</i>, 87, 1227-1237.
+        </div>
+        <div class="p1">
+            Little, R. (1995). Modeling the drop-out mechanism in repeated-measures studies. <i>Journal of the American Statistical Association</i>, 90, 1112-1121.
+        </div>
+        <div class="p1">
+            Little, R. & Rubin, D. (1987). <i>Statistical analysis with missing data</i>. New York: Wiley.
+        </div>
+        <div class="p1">
+            Little, R. & Rubin, D. (1989). The analysis of social science data with missing values. <i>Sociological Methods and Research</i>, 18, 292-326.
+        </div>
+        <div class="p1">
+            Loh, W. & Shih, Y. (1997). Split selection methods for classification trees. <i>Statistica Sinica</i>, 7, 815-840.
+        </div>
+        <div class="p1">
+            Loh, W. & Vanichestakul, N. (1988). Tree-structured classification via generalized discriminant analysis (with discussion). <i>Journal of the American Statistical Association</i>, 83, 715-728.
+        </div>
+        <div class="p1">
+            Masters, T. (1995). <i>Neural, novel, and hybrid algorithms for time series predictions</i>. New York: Wiley.
+        </div>
+        <div class="p1">
+            Michalewicz, Z. (1994). <i>Genetic algorithms + data structures = evolution programs</i>. New York: Springer-Verlag.
+        </div>
+        <div class="p1">
+            Morgan, J. & Messenger, R. (1973). THAID: A sequential analysis program for the analysis of nominal scale dependent variables. Technical report, Institute of Social Research, University of Michigan, Ann Arbor, MI.
+        </div>
+        <div class="p1">
+            Morgan, J. & Sonquist, J. (1973). Problems in the analysis of survey data and a proposal. <i>Journal of the American Statistical Association</i>, 58, 415-434.
+        </div>
+        <div class="p1">
+            Nie, N., Hull, C., Jenkins, J., Steinbrenner, K., & Bent, D. (1975). <i>SPSS</i>, 2nd ed. New York: McGraw-Hill.
+        </div>
+        <div class="p1">
+            Orchard, T. & Woodbury, M. (1972). A missing information principle: Theory and applications. In the Proceedings of the 6th Berkeley Symposium on Mathematical Statistics and Probability, University of California, Berkeley, CA, 1, 697-715.
+        </div>
+        
+
+        
+        <p style="text-align: right; margin-top: 1cm;">pg.no: 23</p><br/>
+    </div>
+  </div>
+  <!------------------------------------------------------------next page----------------------------------------------------->
+ 
+   
+   <div class="section">
+    <div class="content-container"><br/>
+
+        <div class="p1">
+            Pennell, S. (1993). Cross-sectional imputation and longitudinal editing procedures in the survey of income and program participation. Technical report, Institute of Social Research, University of Michigan, Ann Arbor, MI.
+        </div>
+        <div class="p1">
+            Ripley, B. (1996). Pattern recognition and neural networks. Cambridge, UK: Cambridge University Press.
+        </div>
+        <div class="p1">
+            Roth, P. (1994). Missing data: A conceptual review for applied psychologists. <i>Personnel Psychology</i>, 47, 537-560.
+        </div>
+        <div class="p1">
+            Royall, R. & Herson, J. (1973). Robust estimation from finite populations. <i>Journal of the American Statistical Association</i>, 68, 883-889.
+        </div>
+        <div class="p1">
+            Rubin, D. (1978). Multiple imputations in sample surveys - A phenomenological Bayesian approach to nonresponse, Imputation and Editing of Faulty or Missing Survey Data, U.S. Department of Commerce, 1-23.
+        </div>
+        <div class="p1">
+            Rubin, D. (1986). Statistical matching using file concatenation with adjusted weights and multiple imputations. <i>Journal of Business and Economic Statistics</i>, 4, 87-94.
+        </div>
+        <div class="p1">
+            Rubin, D. (1996). Multiple imputation after 18+ years (with discussion. <i>Journal of the American Statistical Association</i>, 91, 473-489.
+        </div>
+        <div class="p1">
+            Rubin, D. & Schenker, N. (1986). Multiple imputation for interval estimation from simple random sample with ignorable nonresponse, <i>Journal of the American Statistical Association</i>, 81, 366-374.
+        </div>
+        <div class="p1">
+            Sande, L. (1982). Imputation in surveys: Coping with reality. <i>The American Statistician</i>, Vol. 36, 145-152.
+        </div>
+        <div class="p1">
+            Sande, L. (1983). Hot-deck imputation procedures. In W.G. Madow & I. Olkin (eds.), Incomplete data in sample surveys, Vol. 3, Proceedings of the Symposium on Incomplete Data: Panel on Incomplete Data, Committee of National Statistics, Commission on Behavioral and Social Sciences and Education, National Research Council, Washington, D. C., 1979, August 10-11, pp. 339-349. New York: Academic Press.
+        </div>
+        <div class="p1">
+            Schafer, J. (1997). Analysis of incomplete multivariate data. London: Chapman and Hall.
+        </div>
+        <div class="p1">
+            Schafer, J. (1999). Multiple imputation: A primer. <i>Statistical Methods in Medical Research</i>, 8, 3-15.
+        </div>
+        <div class="p1">
+            Schafer, J. & Olsen, M. (1998). Multiple imputation for multivariate missing-data problems: A data analyst’s perspective. <i>Multivariate Behavioral Research</i>, 33, 545-571.
+        </div>
+        <div class="p1">
+            Sharpe, P. & Glover, R. (1999). Efficient GA based techniques for classification, <i>Applied Intelligence</i>, 11, 3, 277-284.
+        </div>
+        <div class="p1">
+            Skapura, D. (1995). Building neural networks. New York: Addison Wesley.
+        </div>
+        <div class="p1">
+            Statistical Services of University of Texas (2000). General FAQ #25: Handling missing or incomplete data [Online]. Available <a href="http://www.utexas.edu/cc/faqs/stat/general/gen25.html">here</a>. [2001, September 1].
+        </div>
+        <div class="p1">
+            Sullivan, D. (2001). Document warehousing and text mining. New York: John Wiley & Sons.
+        </div>
+        <div class="p1">
+            Szpiro, G. (1997). A search for hidden relationships: Data mining with genetic algorithms, <i>Computational Economics</i>, 10, 3, 267-277.
+        </div>
+        <div class="p1">
+            Tresp, V., Neuneier, R., & Ahmad, S. (1995). Efficient methods for dealing with missing data in supervised learning. In G. Tesauro, D. Touretzky, and T. Keen (eds.), <i>Advances in neural information processing systems 7</i>, pp. 689-696. Cambridge, MA: The MIT Press.
+        </div>
+        
+        
+        <p style="text-align: right; margin-top: 1cm;">pg.no: 24</p><br/>
+    </div>
+  </div>
+  <!-------------------------------------------------------------------next page --------------------------------------------->
+  <div class="section">
+    <div class="content-container"><br/>
+
+        <div class="p1">
+            van Buren, S., Boshuizen, H., & Knook, D. (1999). Multiple imputation of missing blood pressure covariates in survival analysis. <i>Statistics in Medicine</i>, 18, 681-694.
+        </div>
+        <div class="p1">
+            Warner, B., & Misra, M. (1996). Understanding neural networks as statistical tools. <i>The American Statistician</i>, 50, 284-293.
+        </div>
+        <div class="p1">
+            Westphal, C. & Blaxton, T. (1998). Data mining solutions. New York: Wiley.
+        </div>
+        <div class="p1">
+            Witten, I. & Frank, E. (2000). Data mining. San Francisco: Academic Press.
+        </div>
+        <div class="p1">
+            Wothke, W. (1998). Longitudinal and multi-group modeling with missing data. In T.D. Little, K.U. Schnabel, & J. Baumert (eds.), Modelling longitudinal and multiple group data: Practical issues, applied approaches and specific examples. Mahwah, NJ: Lawrence Erlbaum Associates.
+        </div>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        
+        <p style="text-align: right; margin-top: 1cm;">pg.no: 25</p><br/>
+    </div>
+  </div>
+  <!-------------------------------------------------------------------next page --------------------------------------------->
